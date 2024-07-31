@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# to every line in input.txt, display link and open it in Chrome
+# ask user a prompt (y/n, y is default; don't press enter, just press y or n)
+# remove line from input.txt and create it in output.txt with the response appended
+
 SDIR="/home/gusalbukrk/Pictures/Screenshots"
 
 while IFS= read -r -u 3 line || [ -n "$line" ]; do
@@ -20,7 +24,7 @@ while IFS= read -r -u 3 line || [ -n "$line" ]; do
     IMGSDIR="./imgs/$problemPath"
     mv "$SDIR"/* "$IMGSDIR"/
 
-    # echo "$line $response" >> output.txt
+    echo "$line $response" >> output.txt
 
-    # sed -i -e '1d' input.txt
+    sed -i -e '1d' input.txt
 done 3< input.txt
